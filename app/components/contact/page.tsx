@@ -35,9 +35,15 @@ const page = () => {
       </div>
       <div className="p-12 min-h-screen overflow-y-hidden mt-10 flex flex-col justify-center max-w-[50vw]">
         <div className="text-4xl font-bold pb-3">Say Hello!</div>
-        <div className="flex flex-row gap-5 items-center">
+        <div className="flex flex-row gap-3 items-center">
           <div className="bg-white w-[5rem] h-[1rem]"></div>
-          <div className="text-red-500 font-bold">Write an Email</div>
+          <a
+            href="mailto:rishab829@gmail.com?subject=Your%20Subject&body=Your%20message%20here"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="text-red-500 font-bold">Write an Email</div>
+          </a>
         </div>
         <div className="py-5 flex flex-col">
           <input
