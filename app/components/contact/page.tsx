@@ -14,7 +14,7 @@ const page = () => {
   }, []);
   return (
     <div className="h-screen overflow-y-hidden">
-      {page === "work" ? (
+      {page === "work" || page === "skills" ? (
         <motion.div
           className="background duration-200 -z-[10] opacity-50"
           initial={{ x: "-50%", scale: 1.5 }}

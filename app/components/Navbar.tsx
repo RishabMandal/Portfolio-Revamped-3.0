@@ -46,6 +46,21 @@ const Navbar = () => {
           ></div>
         </Link>
         <Link
+          href="/components/skills"
+          className={
+            currentRoute === "/components/skills"
+              ? "hover:text-red-700 items-center duration-200 cursor-pointer text-red-600 flex flex-row w-full justify-between px-2"
+              : "hover:text-red-700 items-center duration-200 cursor-pointer flex flex-row w-full justify-between px-2"
+          }
+        >
+          <div>Skills</div>
+          <div
+            className={`w-3 h-3 border-2 border-white transform rotate-45 ${
+              currentRoute === "/components/skills" && "bg-red-600"
+            }`}
+          ></div>
+        </Link>
+        <Link
           href="/components/about"
           className={
             currentRoute === "/components/about"

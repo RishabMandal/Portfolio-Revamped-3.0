@@ -14,7 +14,7 @@ export default function Home() {
   }, []);
   return (
     <main className={`p-12 min-h-screen`}>
-      {page === "work" ? (
+      {page === "work" || page === "skills" ? (
         <motion.div
           className="background duration-200 -z-[10]"
           initial={{ x: "-50%", scale: 1.5 }}
