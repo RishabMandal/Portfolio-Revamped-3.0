@@ -10,9 +10,9 @@ const Navbar = () => {
   const { page, setPage } = useContext<any>(GlobalContext);
   return (
     <div
-      className={`borde border-red-500 text-xs font-bold bg-black z-10 transition-transform ${
+      className={`borde border-red-500 text-xs font-bold bg-black bg-opacity-30 z-10 transition-transform ${
         page === "home" ? "translate-x-full hidden" : ""
-      } duration-200`}
+      } duration-500`}
     >
       <div className="w-[6rem] h-full flex flex-col gap-5 justify-center items-center">
         <Link

@@ -46,12 +46,19 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  background-color: #000000;
+  opacity: 1;
+  background-image: radial-gradient(
+    #5a5a5a 0.9500000000000001px,
+    #000000 0.9500000000000001px
+  );
+  background-size: 19px 19px;
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {

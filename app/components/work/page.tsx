@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { GlobalContext } from "@/context";
 import Image from "next/image";
 import ecommerce from "../../../public/assets/ecommerceproject.png";
+import ProjectImage0 from "../../../public/assets/projects/Screenshot 2025-01-24 172617.png";
+import Link from "next/link";
 
 const page = () => {
   const { page, setPage } = useContext<any>(GlobalContext);
@@ -35,7 +37,37 @@ const page = () => {
         <div className="text-3xl font-bold pb-3">Latest Works</div>
         <div className="bg-white w-[5rem] h-[1rem]"></div>
         <div className="flex flex-row gap-10 my-10 justify-center">
-          <div className="relative z-20 cursor-pointer">
+          <Link
+            href="/components/work/0"
+            className="relative z-20 cursor-pointer"
+          >
+            <Image
+              src={ProjectImage0}
+              alt="Project Image"
+              className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
+            />
+            <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  strokeWidth={3}
+                  d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                />
+              </svg>
+            </div>
+          </Link>
+          <Link
+            href="/components/work/1"
+            className="relative z-20 cursor-pointer"
+          >
             <Image
               src={ecommerce}
               alt="Project Image"
@@ -58,34 +90,13 @@ const page = () => {
                 />
               </svg>
             </div>
-          </div>
-          <div className="relative z-20 cursor-pointer">
-            <Image
-              src={ecommerce}
-              alt="Project Image"
-              className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
-            />
-            <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  strokeWidth={3}
-                  d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                />
-              </svg>
-            </div>
-          </div>
+          </Link>
         </div>
         <div className="flex flex-row gap-10 justify-center">
-          <div className="relative z-20 cursor-pointer">
+          <Link
+            href="/components/work/2"
+            className="relative z-20 cursor-pointer"
+          >
             <Image
               src={ecommerce}
               alt="Project Image"
@@ -108,8 +119,11 @@ const page = () => {
                 />
               </svg>
             </div>
-          </div>
-          <div className="relative z-20 cursor-pointer">
+          </Link>
+          <Link
+            href="/components/work/3"
+            className="relative z-20 cursor-pointer"
+          >
             <Image
               src={ecommerce}
               alt="Project Image"
@@ -132,7 +146,7 @@ const page = () => {
                 />
               </svg>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
