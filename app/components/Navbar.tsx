@@ -10,11 +10,11 @@ const Navbar = () => {
   const { page, setPage } = useContext<any>(GlobalContext);
   return (
     <div
-      className={`borde border-red-500 text-xs font-bold bg-black bg-opacity-30 z-10 transition-transform ${
-        page === "home" ? "translate-x-full hidden" : ""
-      } duration-500`}
+      className={`fixed right-0 top-1/2 z-10 text-xs font-bold bg-black bg-opacity-30 transition-transform duration-500 ease-in-out -translate-y-1/2 ${
+        page === "home" ? "translate-x-full" : "translate-x-0"
+      }`}
     >
-      <div className="w-[6rem] h-full flex flex-col gap-5 justify-center items-center">
+      <div className="w-[6.5rem] h-full flex flex-col gap-5 justify-center items-center">
         <Link
           href="/"
           className={
@@ -42,6 +42,21 @@ const Navbar = () => {
           <div
             className={`w-3 h-3 border-2 border-white transform rotate-45 ${
               currentRoute === "/components/work" && "bg-red-600"
+            }`}
+          ></div>
+        </Link>
+        <Link
+          href="/components/experience"
+          className={
+            currentRoute === "/components/experience"
+              ? "hover:text-red-700 items-center duration-200 cursor-pointer text-red-600 flex flex-row w-full justify-between px-2"
+              : "hover:text-red-700 items-center duration-200 cursor-pointer flex flex-row w-full justify-between px-2"
+          }
+        >
+          <div>Experience</div>
+          <div
+            className={`w-3 h-3 border-2 border-white transform rotate-45 ${
+              currentRoute === "/components/experience" && "bg-red-600"
             }`}
           ></div>
         </Link>

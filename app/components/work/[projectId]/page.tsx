@@ -1,7 +1,7 @@
 "use client";
 
 // import { Alert, CircularProgress, Snackbar } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ecommerceProjectImage from "../../../../public/assets/ecommerceProjectImage.jpg";
@@ -12,7 +12,8 @@ import ProjectImage3 from "../../../../public/assets/projects/projectimage3.webp
 import { TextComponent } from "@/components/eldoraui/featurefour";
 import { cn } from "@/lib/utils";
 
-const page: React.FC<{ params: any }> = ({ params }) => {
+const page: React.FC<{ params: any }> = props => {
+  const params = use(props.params);
   const [projectID, setProjectID] = useState(params.projectId);
 
   const [toast, setToast] = useState(false);

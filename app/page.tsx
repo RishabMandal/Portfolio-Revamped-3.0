@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setPage("home");
-    }, 1500);
+    }, 500);
   }, []);
   return (
     <main className={`p-12 min-h-screen`}>

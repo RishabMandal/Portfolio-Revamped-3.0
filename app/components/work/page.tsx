@@ -51,13 +51,13 @@ const page = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={3}
                   d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                 />
@@ -78,13 +78,13 @@ const page = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={3}
                   d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                 />
@@ -107,13 +107,13 @@ const page = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={3}
                   d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                 />
@@ -134,13 +134,13 @@ const page = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   strokeWidth={3}
                   d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
                 />

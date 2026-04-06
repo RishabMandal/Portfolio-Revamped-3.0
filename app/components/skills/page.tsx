@@ -42,6 +42,41 @@ const page = () => {
         <div className="text-3xl font-bold pb-3">Soft Skills</div>
         <div className="bg-white w-[5rem] h-[1rem]"></div>
         <div className="container w-full grid grid-cols-2 mt-10 sm:grid-cols-4 gap-4 text-center py-8">
+          {/* New: Power Apps */}
+          <div className="hover:scale-110 duration-500">
+            <svg
+              className="w-20 h-20 mx-auto text-[#742774]"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
+            <p className="my-4 font-Ubuntu">POWER APPS</p>
+          </div>
+          {/* New: Power Automate */}
+          <div className="hover:scale-110 duration-500">
+            <svg
+              className="w-20 h-20 mx-auto text-[#0066FF]"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <p className="my-4 font-Ubuntu">POWER AUTOMATE</p>
+          </div>
           <div className="  hover:scale-110 duration-500">
             <Image className="w-20 mx-auto" src={ReactImage} alt="HTML icon" />
             <p className="my-4 font-Ubuntu">REACT JS</p>
