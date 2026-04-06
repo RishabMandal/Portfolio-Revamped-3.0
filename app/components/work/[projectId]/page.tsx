@@ -12,11 +12,15 @@ import ProjectImage3 from "../../../../public/assets/projects/projectimage3.webp
 import { TextComponent } from "@/components/eldoraui/featurefour";
 import { cn } from "@/lib/utils";
 
-const page: React.FC<{ params: any }> = props => {
-  const params = use(props.params);
-  const [projectID, setProjectID] = useState(params.projectId);
+type PageProps = {
+  params: Promise<{ projectId: string }>;
+};
 
-  const [toast, setToast] = useState(false);
+const page = (props: PageProps) => {
+  const params = use(props.params);
+  const [projectID, setProjectID] = useState<any>(params.projectId);
+
+  // const [toast, setToast] = useState(false);
   const [projects, setProjects] = useState([
     {
       name: "Border Surveillance System with AI driven thermal and night vision assistance",
