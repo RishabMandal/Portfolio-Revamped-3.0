@@ -39,8 +39,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row items-end bordr border-blue-500 min-h-[70vh] w-full">
-        <div className="flex-1 pt-32">
+      <div className="flex flex-row items-end min-h-[70vh] w-full">
+        {/* <div className="flex-1 pt-32">
           <div className="text-9xl font-bold">
             <div className="text-[#1E1E1E]">I'am</div>
             <div>Rishab</div>
@@ -51,6 +51,45 @@ export default function Home() {
           >
             | My work |
           </Link>
+        </div> */}
+        <div className="flex-1 pt-32">
+          <div className="text-9xl font-bold">
+            <div className="text-[#1E1E1E]">I'am</div>
+            <div>Rishab</div>
+          </div>
+          
+          {/* Animated Call to Action */}
+          <Link href="/components/work" className="inline-block pt-16">
+            <motion.div
+              animate={{ x: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="flex items-center gap-2 group cursor-pointer"
+            >
+              {/* Left Pipe */}
+              <span className="text-red-600 text-2xl font-bold">|</span>
+              
+              {/* Main Text */}
+              <span className="font-bold text-white group-hover:text-red-600 transition-colors duration-300">
+                My work
+              </span>
+              
+              {/* Right Pipe */}
+              <span className="text-red-600 text-2xl font-bold">|</span>
+              
+              {/* Trailing Arrow */}
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                strokeWidth={2.5} 
+                stroke="currentColor" 
+                className="w-6 h-6 text-white group-hover:text-red-600 transition-colors duration-300 -ml-1"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+              </svg>
+            </motion.div>
+          </Link>
+          
         </div>
       </div>
     </main>

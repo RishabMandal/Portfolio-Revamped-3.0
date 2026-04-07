@@ -41,8 +41,9 @@ body {
   right: 0;
   width: 50%;
   height: 100vh;
-  background-image: url("../public/profileImage2.jpg");
+  /* background-image: url("../public/profileImage2.jpg"); */
   /* background-image: url("../public/profileImage3.png"); */
+  background-image: url("../public/profileImage4.png");
   background-size: contain;
   transition: all 0.5s ease;
   background-repeat: no-repeat;

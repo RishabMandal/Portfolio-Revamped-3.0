@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollIndicator from "@/components/ScrollIndicator";
 import { motion } from "framer-motion";
 
 export default function Experience() {
@@ -32,6 +33,7 @@ export default function Experience() {
 
   return (
     <div className="min-h-screen text-white flex flex-col justify-center p-8 md:p-24 lg:pl-48">
+      <ScrollIndicator />
       {/* Header matching the image style */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
