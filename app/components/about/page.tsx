@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { GlobalContext } from "@/context";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+});
 
 export default function About() {
   const { page, setPage } = useContext<any>(GlobalContext);
@@ -14,6 +20,9 @@ export default function About() {
       setPage("about");
     }, 1500);
   }, [setPage]);
+
+  // State to track if the logo is being hovered
+  const [isHovered, setIsHovered] = useState(false);
 
   // I added a placeholder for your Education based on your hackathon history.
   // Feel free to update the degree and description!
@@ -136,9 +145,40 @@ export default function About() {
       <ScrollIndicator />
       {/* Logo */}
       <div className="text-4xl fixed top-0 px-8 md:px-12 mt-5 z-20">
-        <Link href="/" className="font-bold">
-          RM
-        </Link>
+        {/* Animated Expanding Logo */}
+        <motion.div
+          className={`font-bold text-white ${orbitron.className}`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {/* Moved flex layout to the Link tag to fix the layout */}
+          <Link href="/" className="flex items-center cursor-pointer">
+            <span>R</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              ishab&nbsp;
+            </motion.span>
+            <span>M</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              andal
+            </motion.span>
+          </Link>
+        </motion.div>
       </div>
 
       {/* Main Scrolling Content */}

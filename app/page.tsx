@@ -5,6 +5,12 @@ import { GlobalContext } from "@/context";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
+import { Orbitron, Syncopate, Audiowide } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+});
 
 export default function Home() {
   const { page, setPage } = useContext<any>(GlobalContext);
@@ -15,13 +21,16 @@ export default function Home() {
   }, []);
 
   const [isLoading, setIsLoading] = useState(true);
-  
+
+  // State to track if the logo is being hovered
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <>
       <main className={`p-12 min-h-screen`}>
-      <AnimatePresence mode="wait">
-        {isLoading && <Loader finishLoading={() => setIsLoading(false)} />}
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          {isLoading && <Loader finishLoading={() => setIsLoading(false)} />}
+        </AnimatePresence>
         {page === "work" || page === "skills" ? (
           <motion.div
             className="background duration-200 -z-[10]"
@@ -37,7 +46,37 @@ export default function Home() {
           <motion.div className="background duration-200 -z-[10]"></motion.div>
         )}
         <div className="text-4xl -mt-5 flex flex-row justify-between">
-          <div className="font-bold">RM</div>
+          {/* Animated Expanding Logo */}
+          <motion.div
+            className={`font-bold flex cursor-default text-white ${orbitron.className}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <span>R</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              ishab&nbsp;
+            </motion.span>
+            <span>M</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              andal
+            </motion.span>
+          </motion.div>
           <div className="flex flex-col justify-center text-xs font-bold">
             <Link
               href="/components/contact"

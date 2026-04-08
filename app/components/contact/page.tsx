@@ -4,6 +4,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { GlobalContext } from "@/context";
+import { Orbitron } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["700", "900"],
+});
 
 const page = () => {
   const { page, setPage } = useContext<any>(GlobalContext);
@@ -37,6 +43,9 @@ const page = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // State to track if the logo is being hovered
+  const [isHovered, setIsHovered] = useState(false);
   return (
     <div className="min-h-screen">
       {page === "work" || page === "skills" ? (
@@ -64,8 +73,19 @@ const page = () => {
             className="fixed bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 z-20 pointer-events-none text-gray-400"
           >
             {/* Top Chevron */}
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={3}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 15.75l7.5-7.5 7.5 7.5"
+              />
             </svg>
 
             {/* Mouse Body */}
@@ -73,7 +93,11 @@ const page = () => {
               {/* Animated Scroll Wheel */}
               <motion.div
                 animate={{ y: [0, 12], opacity: [1, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "circOut" }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "circOut",
+                }}
                 className="w-1 h-2.5 bg-current rounded-full"
               />
             </div>
@@ -81,19 +105,65 @@ const page = () => {
             {/* Bottom Chevron (Animated bounce) */}
             <motion.div
               animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={3}
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
               </svg>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
       <div className="text-4xl fixed top-0 px-12 mt-5">
-        <Link href="/" className="font-bold">
-          RM
-        </Link>
+        {/* Animated Expanding Logo */}
+        <motion.div
+          className={`font-bold text-white ${orbitron.className}`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          {/* Moved flex layout to the Link tag to fix the layout */}
+          <Link href="/" className="flex items-center cursor-pointer">
+            <span>R</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              ishab&nbsp;
+            </motion.span>
+            <span>M</span>
+            <motion.span
+              initial={{ width: 0, opacity: 0 }}
+              animate={{
+                width: isHovered ? "auto" : 0,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden whitespace-nowrap text-red-500"
+            >
+              andal
+            </motion.span>
+          </Link>
+        </motion.div>
       </div>
       <div className="p-12 min-h-screen overflow-y-hidden mt-10 flex flex-col justify-center max-w-[50vw]">
         <div className="text-4xl font-bold pb-3 pt-10">Say Hello!</div>
