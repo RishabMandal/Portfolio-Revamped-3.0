@@ -67,7 +67,7 @@ export default function About() {
     {
       id: 1,
       title: "Microsoft Certified: Power Platform Fundamentals (PL-900)",
-      issuer: "Coursera",
+      issuer: "Microsoft",
       date: "Oct 2025",
       skills: "Microsoft Dynamics CRM, Dataverse",
       credentialId: "",
