@@ -30,7 +30,7 @@ export default function Home() {
       {/* MOBILE FIX 1: Main container padding
           Desktop reverts exactly to your original `p-12`. Mobile uses `pl-20` to dodge nav.
       */}
-      <main className={`pl-10 pr-6 py-12 md:p-12 min-h-screen overflow-hidden`}>
+      <main className={`pl-6 pr-6 py-6 md:p-12 min-h-screen overflow-hidden`}>
         <AnimatePresence mode="wait">
           {isLoading && <Loader finishLoading={() => setIsLoading(false)} />}
         </AnimatePresence>
@@ -86,7 +86,7 @@ export default function Home() {
             </motion.span>
           </motion.div>
           
-          <div className="flex flex-col justify-center text-[10px] md:text-xs font-bold">
+          <div className="flex flex-col justify-center text-[10px] md:text-xs font-bold leading-none">
             <Link
               href="/components/contact"
               className="text-red-500 text-right md:text-center"

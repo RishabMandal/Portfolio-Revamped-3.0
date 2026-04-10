@@ -57,7 +57,7 @@ export default function Experience() {
           initial={{ x: "-50%", scale: 1.5, opacity: 0.5 }}
         ></motion.div>
       )}
-      <div className="min-h-screen text-white flex flex-col justify-center p-8 md:p-24 lg:pl-48">
+      <div className="min-h-screen text-white flex flex-col justify-center p-8 pl-20 md:p-24 lg:pl-48">
         <ScrollIndicator />
         {/* Header matching the image style */}
         <motion.div
