@@ -19,7 +19,7 @@ import {
 import LeetCodeDashboard from "@/components/LeetCodeDashboard";
 import ScrollIndicator from "@/components/ScrollIndicator";
 
-const page = () => {
+const Page = () => { // Capitalized component name to respect React standards
   const { page, setPage } = useContext<any>(GlobalContext);
   useEffect(() => {
     setPage("work");
@@ -125,20 +125,31 @@ const page = () => {
           initial={{ x: "-50%", scale: 1.5, opacity: 0.5 }}
         ></motion.div>
       )}
-      <div className="p-12">
+      
+      {/* MOBILE FIX 1: Main Layout Wrapper
+          Desktop reverts exactly to your original `md:p-12`. Mobile dodges left nav.
+      */}
+      <div className="pl-20 pr-6 py-12 md:p-12 w-full overflow-hidden">
         <ScrollIndicator />
         <section>
           <div className="text-3xl font-bold pb-3">Latest Works</div>
           <div className="bg-white w-[5rem] h-[1rem]"></div>
-          <div className="flex flex-row gap-10 my-10 justify-center">
+          
+          {/* MOBILE FIX 2: Project Rows 
+              Desktop reverts to `md:flex-row`. Mobile stacks them vertically `flex-col`.
+          */}
+          <div className="flex flex-col md:flex-row gap-10 my-10 items-center justify-center">
             <Link
               href="/components/work/0"
-              className="relative z-20 cursor-pointer"
+              className="relative z-20 cursor-pointer w-full md:w-auto"
             >
+              {/* MOBILE FIX 3: Image Sizing
+                  Desktop reverts to `md:w-[25vw] md:h-[15vw]`. Mobile goes full width.
+              */}
               <Image
                 src={ProjectImage0}
                 alt="Project Image"
-                className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
+                className="w-full h-auto md:w-[25vw] md:h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out object-cover rounded-lg md:rounded-none"
               />
               <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
                 <svg
@@ -149,23 +160,18 @@ const page = () => {
                   stroke="currentColor"
                   className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
             </Link>
             <Link
               href="/components/work/1"
-              className="relative z-20 cursor-pointer"
+              className="relative z-20 cursor-pointer w-full md:w-auto"
             >
               <Image
                 src={ecommerce}
                 alt="Project Image"
-                className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
+                className="w-full h-auto md:w-[25vw] md:h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out object-cover rounded-lg md:rounded-none"
               />
               <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
                 <svg
@@ -176,25 +182,21 @@ const page = () => {
                   stroke="currentColor"
                   className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
             </Link>
           </div>
-          <div className="flex flex-row gap-10 justify-center">
+
+          <div className="flex flex-col md:flex-row gap-10 justify-center items-center">
             <Link
               href="/components/work/2"
-              className="relative z-20 cursor-pointer"
+              className="relative z-20 cursor-pointer w-full md:w-auto"
             >
               <Image
                 src={ecommerce}
                 alt="Project Image"
-                className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
+                className="w-full h-auto md:w-[25vw] md:h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out object-cover rounded-lg md:rounded-none"
               />
               <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
                 <svg
@@ -205,23 +207,18 @@ const page = () => {
                   stroke="currentColor"
                   className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
             </Link>
             <Link
               href="/components/work/3"
-              className="relative z-20 cursor-pointer"
+              className="relative z-20 cursor-pointer w-full md:w-auto"
             >
               <Image
                 src={ecommerce}
                 alt="Project Image"
-                className="w-[25vw] h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out"
+                className="w-full h-auto md:w-[25vw] md:h-[15vw] hover:z-10 hover:opacity-40 hover:scale-110 duration-200 ease-in-out object-cover rounded-lg md:rounded-none"
               />
               <div className="absolute -z-20 hover:z-20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 duration-200">
                 <svg
@@ -232,24 +229,22 @@ const page = () => {
                   stroke="currentColor"
                   className="w-6 h-6 rounded-full bg-white stroke-red-500 p-1"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                 </svg>
               </div>
             </Link>
           </div>
         </section>
 
-        <section className="py-24 pr-24">
+        {/* MOBILE FIX 4: LeetCode Section
+            Desktop reverts to `md:py-24 md:pr-24`. Mobile removes the squishing right padding.
+        */}
+        <section className="py-16 pr-0 md:py-24 md:pr-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
             <h2 className="text-3xl font-bold pb-3">LeetCode Stats</h2>
             <div className="w-[5rem] h-[1rem] bg-white mb-4"></div>
@@ -260,13 +255,15 @@ const page = () => {
           <LeetCodeDashboard />
         </section>
 
-        {/* LATEST ARTICLES SECTION */}
-        <section className="pr-24">
+        {/* MOBILE FIX 5: Articles Section
+            Desktop reverts to `md:pr-24`. Mobile removes the squishing right padding.
+        */}
+        <section className="pr-0 md:pr-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
             <h2 className="text-3xl font-bold pb-3">Latest Articles</h2>
             <div className="w-[5rem] h-[1rem] bg-white mb-4"></div>
@@ -525,4 +522,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

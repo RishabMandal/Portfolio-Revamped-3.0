@@ -24,8 +24,7 @@ export default function About() {
   // State to track if the logo is being hovered
   const [isHovered, setIsHovered] = useState(false);
 
-  // I added a placeholder for your Education based on your hackathon history.
-  // Feel free to update the degree and description!
+  // Data Arrays (Education, Awards, Certifications) remain unchanged
   const education = [
     {
       id: 1,
@@ -143,15 +142,15 @@ export default function About() {
         )}
       </div>
       <ScrollIndicator />
-      {/* Logo */}
-      <div className="text-4xl fixed top-0 px-8 md:px-12 mt-5 z-20">
+      
+      {/* Logo - Adjusted mobile positioning so it doesn't clash with the nav line */}
+      <div className="text-4xl fixed top-0 left-0 w-full px-6 md:px-12 mt-5 z-20 md:left-auto">
         {/* Animated Expanding Logo */}
         <motion.div
-          className={`font-bold text-white ${orbitron.className}`}
+          className={`font-bold text-white ${orbitron.className} flex justify-center md:justify-start`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {/* Moved flex layout to the Link tag to fix the layout */}
           <Link href="/" className="flex items-center cursor-pointer">
             <span>R</span>
             <motion.span
@@ -181,8 +180,14 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* Main Scrolling Content */}
-      <div className="px-8 md:px-12 lg:pl-48 pt-32 pb-24 max-w-5xl flex flex-col gap-24">
+      {/* Main Scrolling Content 
+          Key Changes Here:
+          - Mobile: pl-20 (to avoid left navbar), pr-6
+          - Desktop: px-12 lg:px-24 (original styling) 
+          - Max width adjusted so content doesn't stretch too far 
+      */}
+      <div className="pl-20 pr-6 md:px-12 lg:px-24 xl:pl-48 pt-32 pb-24 max-w-6xl mx-auto md:mx-0 flex flex-col gap-24">
+        
         {/* BIO SECTION */}
         <section>
           <div className="text-4xl md:text-5xl font-bold pb-3">About me</div>
@@ -191,17 +196,16 @@ export default function About() {
             <div
               className="text-red-500 font-bold cursor-pointer hover:text-red-400 transition-colors"
               onClick={() => {
-                // Changed this to open in a new tab so they don't leave your site!
                 window.open(
                   "https://drive.google.com/file/d/111ITsTbq5Lo0_RaAlx-ZBMZMwSI8KJgt/view?usp=drivesdk",
-                  "_blank",
+                  "_blank"
                 );
               }}
             >
               Download CV
             </div>
           </div>
-          <div className="text-gray-300 text-lg leading-relaxed font-medium mb-8 md:max-w-[70%]">
+          <div className="text-gray-300 text-lg md:text-xl leading-relaxed font-medium mb-8 md:max-w-[80%]">
             Rishab Mandal, that's me. Born in India, I am a MERN-Stack Web
             Developer creating websites for people who know that prioritizing
             projects leads to profits. Because when you show up as your full
@@ -217,12 +221,12 @@ export default function About() {
         </section>
 
         {/* EDUCATION SECTION */}
-        <section className="bg-black bg-opacity-50 rounded-xl">
+        <section className="bg-black bg-opacity-50 rounded-xl md:bg-transparent">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-12 pt-6 px-4 md:px-0 md:pt-0"
           >
             <h3 className="text-3xl font-bold tracking-wide mb-4 text-white">
               Education
@@ -230,7 +234,8 @@ export default function About() {
             <div className=" w-[5rem] h-[0.5rem] bg-red-500"></div>
           </motion.div>
 
-          <div className="relative border-l border-gray-700 ml-3 md:ml-0">
+          {/* Education Timeline */}
+          <div className="relative border-l border-gray-700 ml-6 md:ml-2 pb-6 md:pb-0">
             {education.map((edu, index) => (
               <motion.div
                 key={edu.id}
@@ -241,16 +246,16 @@ export default function About() {
                 className="mb-10 ml-8 relative group"
               >
                 <span className="absolute -left-[39px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-black border-2 border-red-500"></span>
-                <h4 className="text-xl md:text-2xl font-semibold text-white mb-1">
+                <h4 className="text-lg md:text-2xl font-semibold text-white mb-1 leading-snug pr-4">
                   {edu.degree}
                 </h4>
-                <span className="block text-red-400 font-medium mb-1 tracking-wide">
+                <span className="block text-red-400 text-sm md:text-base font-medium mb-1 tracking-wide pr-4">
                   {edu.institution}
                 </span>
-                <time className="block mb-3 text-sm font-normal text-gray-500">
+                <time className="block mb-3 text-xs md:text-sm font-normal text-gray-500">
                   {edu.duration}
                 </time>
-                <p className="text-gray-400 leading-relaxed max-w-3xl">
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed pr-4">
                   {edu.description}
                 </p>
               </motion.div>
@@ -259,12 +264,12 @@ export default function About() {
         </section>
 
         {/* HONORS & AWARDS SECTION */}
-        <section className="bg-black bg-opacity-50 rounded-xl">
+        <section className="bg-black bg-opacity-50 rounded-xl p-4 md:p-0 md:bg-transparent">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
             <h3 className="text-3xl font-bold tracking-wide mb-4 text-white">
               Honors & Awards
@@ -280,9 +285,8 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 border border-gray-800 bg-neutral-900/40 hover:border-gray-600 hover:bg-black/80 transition-all rounded-lg relative overflow-hidden group hover:scale-110"
+                className="p-5 md:p-6 border border-gray-800 bg-neutral-900/40 hover:border-gray-600 hover:bg-black/80 transition-all rounded-lg relative overflow-hidden group hover:scale-[1.02] md:hover:scale-110"
               >
-                {/* Subtle gradient glow on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                 <div className="relative z-10 flex flex-col h-full">
@@ -301,17 +305,17 @@ export default function About() {
                         d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
                       ></path>
                     </svg>
-                    <span className="text-xs font-medium text-gray-400 border border-gray-700 bg-black/50 px-2 py-1 rounded">
+                    <span className="text-[10px] md:text-xs font-medium text-gray-400 border border-gray-700 bg-black/50 px-2 py-1 rounded">
                       {award.date}
                     </span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mb-2 leading-tight">
+                  <h4 className="text-base md:text-lg font-bold text-white mb-2 leading-tight">
                     {award.title}
                   </h4>
-                  <p className="text-sm font-medium text-red-600 mb-3">
+                  <p className="text-xs md:text-sm font-medium text-red-600 mb-3">
                     {award.issuer}
                   </p>
-                  <p className="text-sm text-gray-400 leading-relaxed mt-auto">
+                  <p className="text-xs md:text-sm text-gray-400 leading-relaxed mt-auto">
                     {award.description}
                   </p>
                 </div>
@@ -321,12 +325,12 @@ export default function About() {
         </section>
 
         {/* CERTIFICATIONS SECTION */}
-        <section className="bg-black bg-opacity-50 rounded-xl">
+        <section className="bg-black bg-opacity-50 rounded-xl p-4 md:p-0 md:bg-transparent">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
             <h3 className="text-3xl font-bold tracking-wide mb-4 text-white">
               Certifications
@@ -342,14 +346,12 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 border border-gray-800 bg-neutral-900/40 hover:border-gray-600 hover:bg-neutral-900/80 transition-all rounded-lg relative overflow-hidden group flex flex-col"
+                className="p-5 md:p-6 border border-gray-800 bg-neutral-900/40 hover:border-gray-600 hover:bg-neutral-900/80 transition-all rounded-lg relative overflow-hidden group flex flex-col hover:scale-[1.02] md:hover:scale-100"
               >
-                {/* Emerald gradient glow on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
                 <div className="relative z-10 flex flex-col h-full">
                   <div className="flex justify-between items-start mb-4">
-                    {/* Certificate Badge Icon */}
                     <svg
                       className="w-8 h-8 text-red-600 flex-shrink-0"
                       fill="none"
@@ -364,15 +366,15 @@ export default function About() {
                         d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                       ></path>
                     </svg>
-                    <span className="text-xs font-medium text-gray-400 border border-gray-700 bg-black/50 px-2 py-1 rounded">
+                    <span className="text-[10px] md:text-xs font-medium text-gray-400 border border-gray-700 bg-black/50 px-2 py-1 rounded">
                       {cert.date}
                     </span>
                   </div>
 
-                  <h4 className="text-lg font-bold text-white mb-2 leading-tight">
+                  <h4 className="text-base md:text-lg font-bold text-white mb-2 leading-tight">
                     {cert.title}
                   </h4>
-                  <p className="text-sm font-medium text-red-600 mb-4">
+                  <p className="text-xs md:text-sm font-medium text-red-600 mb-4">
                     {cert.issuer}
                   </p>
 
@@ -382,7 +384,7 @@ export default function About() {
                       {cert.skills}
                     </p>
                     {cert.credentialId && (
-                      <p className="text-xs text-gray-500 font-mono break-all">
+                      <p className="text-[10px] md:text-xs text-gray-500 font-mono break-all">
                         ID: {cert.credentialId}
                       </p>
                     )}

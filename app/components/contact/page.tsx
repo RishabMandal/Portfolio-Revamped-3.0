@@ -129,7 +129,11 @@ const page = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="text-4xl fixed top-0 px-12 mt-5">
+
+      {/* MOBILE FIX 1: Logo Wrapper 
+          Desktop reverts to your exact classes: md:block md:w-auto md:px-12 
+      */}
+      <div className="text-4xl fixed top-0 mt-5 w-full flex justify-center px-6 md:block md:w-auto md:px-12">
         {/* Animated Expanding Logo */}
         <motion.div
           className={`font-bold text-white ${orbitron.className}`}
@@ -165,7 +169,11 @@ const page = () => {
           </Link>
         </motion.div>
       </div>
-      <div className="p-12 min-h-screen overflow-y-hidden mt-10 flex flex-col justify-center max-w-[50vw]">
+
+      {/* MOBILE FIX 2: Main Content Wrapper
+          Desktop reverts to your exact classes: md:p-12 md:max-w-[50vw]
+      */}
+      <div className="pl-20 pr-6 py-12 w-full md:p-12 min-h-screen overflow-y-hidden mt-10 flex flex-col justify-center md:max-w-[50vw]">
         <div className="text-4xl font-bold pb-3 pt-10">Say Hello!</div>
         <div className="flex flex-row gap-3 items-center">
           <div className="bg-white w-[5rem] h-[1rem]"></div>
